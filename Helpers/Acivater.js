@@ -8,7 +8,7 @@ export async function Accountactivator(email,token) {
         service: 'gmail',
         auth: {
             user: process.env.email,
-            pass: process.env.emapilapppassword
+            pass: process.env.emailapppassword
         }
     });
 
