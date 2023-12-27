@@ -45,6 +45,13 @@ Petty Cash Manager is a simple application designed to streamline the management
 ## Authentication
 
 Explain how authentication is handled in your application.
+
+## Live API
+
+[Click to Open the Live API](https://petty-cash-backend-w7d0.onrender.com)
+
+## Features
+## Demo
 ![image](https://github.com/Suryaprakash-G26/Pettycash-Manager-Backend/assets/141228691/76887b1a-ec9b-412a-b271-0fd5cc0c04c6)
 
 
