@@ -42,6 +42,7 @@ router.post("/signin", async (req, res) => {
 
     user.sessionToken = token;
     await user.save();
+     const userId=user._id
 
     //save in cookies
     res.cookie("sessionToken", token, { httpOnly: true, secure: true });
@@ -49,7 +50,7 @@ router.post("/signin", async (req, res) => {
 
     res
       .status(200)
-      .json({ data: "Logged in successfully", sessionToken: token });
+      .json({ data: "Logged in successfully", sessionToken: token ,userId});
   } catch (error) {
     console.error(error);
     res

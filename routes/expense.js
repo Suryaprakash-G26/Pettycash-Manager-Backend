@@ -14,7 +14,7 @@ const router = express.Router();
 
 router.get("/allexpenses", async (req, res) => {
   try {
-    const userId = req.cookies.userid;
+    const userId = req.body.userId;
 
     //get expenses
     const data= await Getallexpenses(userId);
@@ -51,7 +51,7 @@ router.post("/addexpense", async (req, res) => {
     const totalPrice = quantity * price;
 
     //getting user id
-    const userId = req.cookies.userid;
+    const userId = req.body.userId;
 
     if (!userId) {
       return res
@@ -75,7 +75,7 @@ router.post("/addexpense", async (req, res) => {
 router.delete("/deleteexpense/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const userId = req.cookies.userid;
+    const userId = req.body.userId;
 
     //check product
     const expense = await getexpense(userId, id);
@@ -104,7 +104,7 @@ router.delete("/deleteexpense/:id", async (req, res) => {
 router.put("/editexpense/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const userId = req.cookies.userid;
+    const userId = req.body.userId;
 
     //check product
     const expense = await getexpense(userId, id);
