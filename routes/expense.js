@@ -12,23 +12,29 @@ const router = express.Router();
 
 // All expenses
 
-router.get("/allexpenses", async (req, res) => {
+router.get("/allexpenses/:userId", async (req, res) => {
   try {
-    const userId = req.body.userId;
+    const userId = req.params.userId;
 
-    //get expenses
-    const data= await Getallexpenses(userId);
-    if(!data){
-       return res.status(404).json("details not found");
+    // Validate userId (check if it exists and has a valid format if needed)
+    if (!userId) {
+      return res.status(400).json({ error: "Bad Request", message: "userId is required" });
     }
-    res.status(200).json({ data});
+
+    // Get expenses
+    const data = await Getallexpenses(userId);
+
+    if (!data) {
+      return res.status(404).json({ error: "Not Found", message: "Details not found" });
+    }
+
+    res.status(200).json({ data });
   } catch (error) {
     console.error(error);
-    res
-      .status(500)
-      .json({ error: "Internal Server Error", message: error.message });
+    res.status(500).json({ error: "Internal Server Error", message: error.message });
   }
 });
+
 
 //Add expenses
 
@@ -42,17 +48,13 @@ router.post("/addexpense", async (req, res) => {
     }
 
     // Validation
-    const { title, category, price, quantity, description, date } = req.body;
+    const { title, category, price, quantity, description, date ,userId} = req.body;
 
     if (!title || !category || !price || !quantity || !description || !date) {
       return res.status(400).json({ error: "Please fill in all fields" });
     }
     //total price
     const totalPrice = quantity * price;
-
-    //getting user id
-    const userId = req.body.userId;
-
     if (!userId) {
       return res
         .status(401)
