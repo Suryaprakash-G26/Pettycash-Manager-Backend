@@ -48,9 +48,9 @@ router.post("/addexpense", async (req, res) => {
     }
 
     // Validation
-    const { title, category, price, quantity, description, date ,userId} = req.body;
+    const { title, category, price, quantity, type, date ,userId} = req.body;
 
-    if (!title || !category || !price || !quantity || !description || !date) {
+    if (!title || !category || !price || !quantity || !type || !date) {
       return res.status(400).json({ error: "Please fill in all fields" });
     }
     //total price
