@@ -8,8 +8,8 @@ export function NewExpense(data){
     return Expense(data).save()
 }
 
-export async function getexpense(userid,id){
-    return Expense.findOne({userId:userid,_id:id})
+export async function getexpense(id){
+    return Expense.findOne({_id:id})
 }
 
 export async function deleteexpense(id){

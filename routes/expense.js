@@ -6,7 +6,6 @@ import {
   editExpense,
   getexpense,
 } from "../controllers/Account/expense.js";
-import moment from "moment";
 
 const router = express.Router();
 
@@ -77,10 +76,8 @@ router.post("/addexpense", async (req, res) => {
 router.delete("/deleteexpense/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const userId = req.body.userId;
-
     //check product
-    const expense = await getexpense(userId, id);
+    const expense = await getexpense(id);
 
     // if expense doesnt exist
     if (!expense) {
@@ -106,10 +103,8 @@ router.delete("/deleteexpense/:id", async (req, res) => {
 router.put("/editexpense/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const userId = req.body.userId;
-
     //check product
-    const expense = await getexpense(userId, id);
+    const expense = await getexpense( id);
 
     // if expense doesnt exist
     if (!expense) {
@@ -130,7 +125,7 @@ router.put("/editexpense/:id", async (req, res) => {
    const updateddata= await editExpense(id,edited)
 
 
-    res.status(200).json({ data: "Expense Edited and updated successfully",updateStatus:updateddata.acknowledged });
+    res.status(200).json({ data: "Expense  updated successfully",updateStatus:updateddata.acknowledged });
   } catch (error) {
     console.error(error);
     res
