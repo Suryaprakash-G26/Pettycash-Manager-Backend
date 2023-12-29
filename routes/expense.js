@@ -125,7 +125,7 @@ router.put("/editexpense/:id", async (req, res) => {
    const updateddata= await editExpense(id,edited)
 
 
-    res.status(200).json({ data: "Expense  updated successfully",updateStatus:updateddata.acknowledged });
+    res.status(200).json({ data: "Expense  updated successfully",updateStatus:updateddata,edited });
   } catch (error) {
     console.error(error);
     res
