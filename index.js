@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import { client } from "./db/db.js";
 import { SigninRouter } from "./routes/login.js";
 import { expenseRouter } from "./routes/expense.js";
+import { IncomeRouter } from "./routes/income.js";
 
 //config for env 
 dotenv.config()
@@ -24,6 +25,8 @@ app.use(cookieParser())
 // application routes
 app.use('/',SigninRouter)
 app.use('/data',expenseRouter)
+app.use('/input',IncomeRouter)
+
 
 
 
