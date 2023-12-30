@@ -41,7 +41,20 @@ Petty Cash Manager is a simple application designed to streamline the management
 ## API Endpoints
 
 - Document and describe your API endpoints here.
+- for signin
+- https://petty-cash-backend-w7d0.onrender.com/signin
+- for Register
+- https://petty-cash-backend-w7d0.onrender.com/register
+- for Add Expense
+- https://petty-cash-backend-w7d0.onrender.com/data/addexpense
+- for Get Expense
+- https://petty-cash-backend-w7d0.onrender.com/data/allexpenses/:userid
+- for Edit Expense
+- https://petty-cash-backend-w7d0.onrender.com/data/editexpense/:id
+- for Delete Expense
+- https://petty-cash-backend-w7d0.onrender.com/id/deleteexpense/:userid
 
+  
 ## Authentication
 
 Explain how authentication is handled in your application.
